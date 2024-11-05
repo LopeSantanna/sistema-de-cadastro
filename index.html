@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de cadastro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Cadastro do Aluno</h1>
+    <section class="container">
+        <article id="info_aluno">
+            <label>Nome:</label>
+            <input id="nameUser" type="text" placeholder="Digite o seu nome aqui">
+            <label>Matricula:</label>
+            <input id="idUser" type="text" placeholder="Digite a sua matricula aqui">
+            <label>E-mail:</label>
+            <input id="emailUser" type="email" placeholder="Digite o seu e-mail aqui">
+            <label>Telefone:</label>
+            <input id="contactUser" type="text" placeholder="Digite seu telefone aqui">
+            <button id="addButton">Cadastrar</button>
+
+        </article>
+
+        <button id="showButton">Alunos Cadastrados</button>
+
+        <section id="saida">
+            <h2>Alunos Cadastrados</h2>
+            <div id="studentList"></div>
+        </section>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
