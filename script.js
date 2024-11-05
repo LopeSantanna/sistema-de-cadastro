@@ -51,8 +51,8 @@ function validateInputs() {
 }
 
 function displayStudents() {
-    studentList.innerHTML = "";  
-    students.forEach(student => {
+    studentList.innerHTML = ""; 
+    students.forEach((student, index) => {
         const studentContainer = document.createElement("div");
         studentContainer.classList.add("student-item");
 
@@ -61,10 +61,44 @@ function displayStudents() {
             <label><strong>Matrícula:</strong> ${student.registration}</label><br>
             <label><strong>Email:</strong> ${student.email}</label><br>
             <label><strong>Telefone:</strong> ${student.phone}</label><br>
-            <hr> `;
+            <button onclick="editStudent(${index})">Edit</button>
+            <button onclick="deleteStudent(${index})">Delete</button>
+            <hr>
+        `;
 
         studentList.appendChild(studentContainer);
     });
+}
+
+function editStudent(index) {
+    const student = students[index];
+    studentInfo.name.value = student.name;
+    studentInfo.registration.value = student.registration;
+    studentInfo.email.value = student.email;
+    studentInfo.phone.value = student.phone;
+    addButton.textContent = "Save";
+
+    addButton.onclick = () => {
+        saveEdit(index);
+    };
+}
+
+function saveEdit(index) {
+    students[index] = new Student(
+        studentInfo.name.value,
+        studentInfo.registration.value,
+        studentInfo.email.value,
+        studentInfo.phone.value
+    );
+    addButton.textContent = "Register";
+    addButton.onclick = addStudent;
+    displayStudents();
+    clearForm();
+}
+
+function deleteStudent(index) {
+    students.splice(index, 1);
+    displayStudents();
 }
 
 function clearForm() {
