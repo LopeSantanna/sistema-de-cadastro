@@ -61,8 +61,8 @@ function displayStudents() {
             <label><strong>Matrícula:</strong> ${student.registration}</label><br>
             <label><strong>Email:</strong> ${student.email}</label><br>
             <label><strong>Telefone:</strong> ${student.phone}</label><br>
-            <button onclick="editStudent(${index})">Edit</button>
-            <button onclick="deleteStudent(${index})">Delete</button>
+            <button onclick="editStudent(${index})">Editar</button>
+            <button onclick="deleteStudent(${index})">Deletar</button>
             <hr>
         `;
 
@@ -76,7 +76,7 @@ function editStudent(index) {
     studentInfo.registration.value = student.registration;
     studentInfo.email.value = student.email;
     studentInfo.phone.value = student.phone;
-    addButton.textContent = "Save";
+    addButton.textContent = "Salvar";
 
     addButton.onclick = () => {
         saveEdit(index);
@@ -90,7 +90,7 @@ function saveEdit(index) {
         studentInfo.email.value,
         studentInfo.phone.value
     );
-    addButton.textContent = "Register";
+    addButton.textContent = "Cadastrar";
     addButton.onclick = addStudent;
     displayStudents();
     clearForm();
